@@ -1,14 +1,17 @@
 const {
   getUsers,
   getUserById,
-  UpdateById,
-  deleteByID,
+  patchById,
   addUser,
-} = require("../Controllers/usersControllers");
+  deleteUser,
+} = require("../controllers/usersControllers");
+
 const router = require("express").Router();
+
 router.get("/", getUsers);
 router.get("/:id", getUserById);
-router.patch("/:id", UpdateById);
-router.delete("/:id", deleteByID);
-router.post("/:id", addUser);
+router.patch("/:id", patchById);
+router.post("/", addUser);
+router.delete("/:id", deleteUser);
+
 module.exports = router;
